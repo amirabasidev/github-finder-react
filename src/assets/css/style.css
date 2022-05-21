@@ -191,3 +191,8 @@ img {
 }
 
 /* ---------- STYLE ----------*/
+/* Card */
+.card{
+  width: 100%;
+  box-shadow: var(--box-shadow-sm);
+}
