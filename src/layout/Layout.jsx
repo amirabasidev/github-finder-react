@@ -1,7 +1,9 @@
+import Header from '../components/UI/Header'
+
 const Layout = ({ children }) => {
   return (
     <>
-      {/* HEADER */}
+      <Header />
       <div className="container">{children}</div>
       {/* FOOTER */}
     </>

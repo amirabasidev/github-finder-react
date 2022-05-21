@@ -196,3 +196,31 @@ img {
   width: 100%;
   box-shadow: var(--box-shadow-sm);
 }
+/* Header */
+.header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.logo{
+  margin-right: 10px;
+  font-size: var(--font-size-xxl);
+  color: var(--color-blue);
+}
+.navbar__items{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.navbar__item{
+  height: 100%;
+}
+.navbar__link{
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding:10px 15px;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-lg);
+  color: var(--color-black);
+}
