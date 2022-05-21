@@ -280,3 +280,14 @@ img {
   animation: spinner 0.6s linear infinite;
   -webkit-animation: spinner 0.6s linear infinite;
 }
+/* Form */
+.form__user {
+  width: 900px;
+  margin: 0 auto;
+}
+.form__user > .form-control {
+  margin-bottom: 10px;
+}
+.form__user > .btn {
+  width: 100%;
+}
