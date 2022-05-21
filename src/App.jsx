@@ -24,6 +24,8 @@ const App = () => {
     }
   };
 
+  const clearAllUsers = () => setUsers([]);
+
   return (
     <BrowserRouter>
       <Layout>
@@ -34,6 +36,9 @@ const App = () => {
               element={
                 <Home
                   searchUsers={searchUsers}
+                  loading={loading}
+                  users={users}
+                  clearAllUsers={clearAllUsers}
                 />
               }
             />
