@@ -5,9 +5,11 @@ import Layout from "./layout/Layout";
 import Spinner from "./components/UI/Spinner";
 
 const Home = lazy(() => import("./pages/Home"));
+const User = lazy(() => import("./pages/User"));
 
 const App = () => {
   const [users, setUsers] = useState([]);
+  const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
 
   const searchUsers = async (value) => {
@@ -26,6 +28,20 @@ const App = () => {
 
   const clearAllUsers = () => setUsers([]);
 
+  const getUser = async (login) => {
+    setLoading(true);
+    try {
+      const res = await fetch(`https://api.github.com/users/${login}`);
+      const user = await res.json();
+
+      setUser(user);
+    } catch (error) {
+      throw `Error : ${error}`;
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <BrowserRouter>
       <Layout>
@@ -41,6 +57,10 @@ const App = () => {
                   clearAllUsers={clearAllUsers}
                 />
               }
+            />
+            <Route
+              path="/user/:login"
+              element={<User user={user} loading={loading} getUser={getUser} />}
             />
           </Routes>
         </Suspense>
