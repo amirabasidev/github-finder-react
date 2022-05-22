@@ -1,16 +1,18 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+import UserDetails from "../components/user/UserDetails";
+
 const User = ({ user, loading, getUser }) => {
   const { login } = useParams();
-  
+
   useEffect(() => {
     getUser(login);
   }, []);
 
   return (
     <div className="user">
-      {/* USER DETAILS */}
+      <UserDetails user={user} loading={loading} />
     </div>
   );
 };
