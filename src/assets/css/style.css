@@ -420,3 +420,18 @@ img {
 .not__check{
   background: url(../../assets/svg/not_check.svg) no-repeat center center;
 }
+/* Back Btn */
+.back{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-md);
+}
+.back__icon{
+  background: url('../svg/arrowBack.svg') no-repeat center center;
+  background-size: 22px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
