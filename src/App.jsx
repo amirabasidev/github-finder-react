@@ -10,7 +10,9 @@ const User = lazy(() => import("./pages/User"));
 const App = () => {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
+  const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loadingRepos, setLoadingRepos] = useState(false);
 
   const searchUsers = async (value) => {
     setLoading(true);
@@ -42,6 +44,22 @@ const App = () => {
     }
   };
 
+  const getRepos = async (login) => {
+    setLoadingRepos(true);
+    try {
+      const res = await fetch(
+        `https://api.github.com/users/${login}/repos?per_page=5&sort=created:asc`,
+      );
+      const repos = await res.json();
+
+      setRepos(repos);
+    } catch (error) {
+      throw `Error : ${error}`;
+    } finally {
+      setLoadingRepos(false);
+    }
+  };
+
   return (
     <BrowserRouter>
       <Layout>
@@ -60,7 +78,16 @@ const App = () => {
             />
             <Route
               path="/user/:login"
-              element={<User user={user} loading={loading} getUser={getUser} />}
+              element={
+                <User
+                  user={user}
+                  loading={loading}
+                  getUser={getUser}
+                  getRepos={getRepos}
+                  repos={repos}
+                  loadingRepos={loadingRepos}
+                />
+              }
             />
           </Routes>
         </Suspense>
