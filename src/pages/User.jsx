@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+import BackBtn from "../components/backBtn/BackBtn";
 import UserDetails from "../components/user/UserDetails";
 
 const User = ({ user, loading, getUser }) => {
@@ -12,6 +13,7 @@ const User = ({ user, loading, getUser }) => {
 
   return (
     <div className="user">
+      <BackBtn />
       <UserDetails user={user} loading={loading} />
     </div>
   );
