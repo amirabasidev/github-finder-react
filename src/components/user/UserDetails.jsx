@@ -3,7 +3,7 @@ import Card from "../UI/Card";
 
 const UserDetails = ({ user,loading }) => {
   return (
-    <Card padding="20px">
+    <Card padding="20px" margin="10px 0">
       {loading ? (
         <Spinner minHeight="290px"/>
       ) : (
